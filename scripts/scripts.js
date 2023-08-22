@@ -90,6 +90,8 @@ async function loadEager(doc) {
     if (window.innerWidth >= 900 || sessionStorage.getItem('fonts-loaded')) {
       loadFonts();
     }
+
+    await loadTestPage();
   } catch (e) {
     // do nothing
   }
@@ -116,8 +118,6 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
-
-  await loadTestPage();
 }
 
 /**
